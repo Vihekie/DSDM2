@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
                 double nota_2= Float.parseFloat(nota2.getText().toString());
                 TextView nota3 = (TextView) findViewById(R.id.n3);
                 double nota_3= Float.parseFloat(nota3.getText().toString());
-
                 TextView peso1 = (TextView) findViewById(R.id.p1);
                 double peso_1= Float.parseFloat(peso1.getText().toString());
                 TextView peso2 = (TextView) findViewById(R.id.p2);

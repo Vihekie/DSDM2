@@ -37,8 +37,18 @@ public class MainActivity extends AppCompatActivity {
                 in.putExtra("PESO3",peso_3);
                 String titu = "teste";
                 Intent Chooser = Intent.createChooser(in,titu);
-                startActivity(in);
+                int Rc = 1;
+                startActivityForResult(in,Rc);
             }
         });
     }
+    protected void onActivityResult(int requestcode,int resultcode,Intent data){
+        if (resultcode == RESULT_OK) {
+            Intent riso = getIntent();
+            Bundle bd = riso.getExtras();
+            int result = bd.getInt("RESULTADO");
+            TextView viu = (TextView) findViewById(R.id.Hello);
+            viu.setText(result);
+        }
+        }
 }

@@ -1,5 +1,6 @@
 package com.example.ifc.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +21,9 @@ public class Main2Activity extends AppCompatActivity {
         double peso2 = bd.getDouble("PESO2");
         double peso3= bd.getDouble("PESO3");
         double resultado = ((nota1*peso1)+(nota2*peso2)+(nota3*peso3))/(peso1+peso2+peso3);
-        TextView show =(TextView) findViewById(R.id.oi);
-        show.setText(Double.toString(resultado));
+        Intent in2 = new Intent( Main2Activity.this, MainActivity.class);
+        in2.putExtra("RESULTADO",resultado);
+        setResult(Activity.RESULT_OK,in2);
+        finish();
     }
 }
