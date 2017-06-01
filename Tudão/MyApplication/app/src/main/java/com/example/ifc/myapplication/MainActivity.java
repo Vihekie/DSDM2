@@ -1,6 +1,7 @@
 package com.example.ifc.myapplication;
 
 import android.content.Intent;
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,9 +37,20 @@ public class MainActivity extends AppCompatActivity {
                 in.putExtra("PESO1",peso_1);
                 in.putExtra("PESO2",peso_2);
                 in.putExtra("PESO3",peso_3);
-                startActivity(in);
+                int RQUEST = 1;
+                startActivityForResult(in,RQUEST);
+
             }
         });
+    }
+    protected void onActivityResult(int requestcode,int resultcode,Intent data) {
+        if (resultcode == Activity.RESULT_OK) {
+            Bundle bd = data.getExtras();
+            double result = bd.getDouble("RESULTADO");
+            TextView viu = (TextView) findViewById(R.id.Hello);
+            String rs= Double.toString(result);
+            viu.setText(rs);
+        }
     }
 }
 

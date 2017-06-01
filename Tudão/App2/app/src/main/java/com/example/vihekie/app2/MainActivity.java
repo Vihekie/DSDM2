@@ -1,6 +1,7 @@
 package com.example.vihekie.app2;
 
 import android.content.Intent;
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    protected void onActivityResult(int requestcode,int resultcode,Intent data){
+    protected void onActivityResult(int requestcode,int resultcode,Intent data) {
         if (resultcode == RESULT_OK) {
-            Intent riso = getIntent();
-            Bundle bd = riso.getExtras();
-            int result = bd.getInt("RESULTADO");
+            Bundle bd = data.getExtras();
+            double result = bd.getDouble("RESULTADO");
             TextView viu = (TextView) findViewById(R.id.Hello);
-            viu.setText(result);
+            String rs= Double.toString(result);
+            viu.setText(rs);
         }
-        }
+    }
 }

@@ -21,9 +21,9 @@ public class Main2Activity extends AppCompatActivity {
         double peso2 = bd.getDouble("PESO2");
         double peso3= bd.getDouble("PESO3");
         double resultado = ((nota1*peso1)+(nota2*peso2)+(nota3*peso3))/(peso1+peso2+peso3);
-        Intent in2 = new Intent( Main2Activity.this, MainActivity.class);
+        Intent in2 = new Intent();
         in2.putExtra("RESULTADO",resultado);
-        setResult(Activity.RESULT_OK,in2);
+        setResult(Activity.RESULT_OK, in2);
         finish();
     }
 }
